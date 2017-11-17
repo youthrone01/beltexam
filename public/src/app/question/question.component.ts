@@ -31,6 +31,9 @@ export class QuestionComponent implements OnInit {
     this._router.navigate(['index']);
   }
   ngOnInit() {
+    if(this._mainService.loginUser==""){
+      this._router.navigate(['index']);
+    }else{
     this._route.paramMap.subscribe((params)=>{
       this.que_id = params.get('id');
       this._mainService.getQuestion(this.que_id,(res)=>{
@@ -42,5 +45,5 @@ export class QuestionComponent implements OnInit {
       })
     })
   }
-
+  }
 }

@@ -48,6 +48,9 @@ export class AnswerComponent implements OnInit {
 
 
   ngOnInit() {
+    if(this.answer.user==""){
+      this._router.navigate(['index']);
+    }else{
     this._route.paramMap.subscribe((params)=>{
       this.que_id = params.get('id');
       this.answer.que_id = this.que_id;
@@ -55,6 +58,7 @@ export class AnswerComponent implements OnInit {
         this.the_que = res;
       })
     })
+  }
   }
 
 }

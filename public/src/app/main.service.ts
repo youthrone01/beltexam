@@ -44,7 +44,7 @@ allQuestions(callback){
 }
 
 getQuestion(id, callback){
-  this._http.get("/question/"+id).subscribe(
+  this._http.get("/questions/"+id).subscribe(
     (res)=>{
       console.log('success 4');
       callback(res.json());
@@ -74,6 +74,17 @@ createAnswer(answer){
     },
     (error)=>{
       console.log("error 7 ");
+    }
+  )
+}
+newsearch(text, callback){
+  this._http.post("/questions/search", {search:text}).subscribe(
+    (res)=>{
+      console.log('success 7');
+      callback(res.json());      
+    },
+    (error)=>{
+      console.log("error 8 ");
     }
   )
 }

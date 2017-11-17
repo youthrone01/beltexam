@@ -42,6 +42,9 @@ export class NewComponent implements OnInit {
     this._router.navigate(['index']);
   }
   ngOnInit() {
+    if(this.question.user==""){
+      this._router.navigate(['index']);
+    }
   }
 
 }

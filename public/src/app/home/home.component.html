@@ -2,8 +2,13 @@
 <button (click)="logout()">Logout</button>
 <a [routerLink]="['new_question']">Add a Question</a><br><br>
 
-Search: <input type="text" name="search"><br><br>
-
+<form (submit)="search_que()" #formData = "ngForm">
+    Search:<input type="text" name="search" required
+    [(ngModel)]="search" #searchit="ngModel" placeholder="Enter what you are looking for"> {{searchit.errors | json}}<br><br>
+  
+    <input type="submit" [disabled]="!formData.valid" value="Search">
+  </form>
+<button (click)="getAll()">All questions</button>
 
 <table>
   <thead>

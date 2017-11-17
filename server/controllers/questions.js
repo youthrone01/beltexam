@@ -36,6 +36,17 @@ module.exports = {
 				res.json(question);
 			}
 		})
+	},
+	search:function(req, res){
+		
+		Question.find({text:{$regex:req.body.search}}).populate('answers').exec(function(err,questions){
+			if(err){	
+				console.log("can not find relate questions");
+			}else{
+				
+				res.json(questions);
+			}
+		})
 	}
 	
 }
