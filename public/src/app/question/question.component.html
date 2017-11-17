@@ -1,0 +1,15 @@
+<a [routerLink]="['']">Home</a>|<a [routerLink]="['new_answer']">Answer this Question</a>
+<button (click)="logout()">Logout</button><br>
+<hr>
+<h1>{{the_que.text}}</h1>
+<h3>{{the_que.desc}}</h3><br><br>
+
+<div *ngIf="answers != []">
+  <div *ngFor="let answer of answers">
+    <h3>{{answer?.user}} :</h3>
+    <h3>{{answer?.text}}</h3>
+    <p> ------{{answer?.support}}</p>
+    <p>{{answer?.likes}} likes <button (click)="like(answer._id)">Like!</button></p><br>
+  </div>
+</div>
+

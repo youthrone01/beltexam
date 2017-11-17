@@ -1,0 +1,8 @@
+<h1>Q & A</h1>
+
+<form (submit)="onSubmit()" #formData = "ngForm">
+  Name:<input type="text" name="name" required
+  [(ngModel)]="name" #user="ngModel" placeholder="Enter user name"> {{user.errors | json}}<br><br>
+
+  <input type="submit" [disabled]="!formData.valid" value="Enter">
+</form>

@@ -1,0 +1,15 @@
+<a [routerLink]="['']">Home</a><br>
+<button (click)="logout()">Logout</button><br>
+
+<h1>New Question</h1><br>
+
+<form (submit)="onSubmit()" #formData1 = "ngForm">
+  Question:<input type="text" name="text" required minlength="10"
+  [(ngModel)]="question.text" #text="ngModel" placeholder="Enter your question"> {{text.errors | json}}<br><br>
+
+  Description (optional):<input type="text" name="desc"
+  [(ngModel)]="question.desc" #desc="ngModel" placeholder="Enter your description"> {{desc.errors | json}}<br><br>
+
+  <input type="submit" [disabled]="!formData1.valid" value="Submit">
+</form><br>
+<button (click)="cancel()">Cancel</button>

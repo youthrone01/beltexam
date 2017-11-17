@@ -1,0 +1,27 @@
+<h1>Hi {{loginUser}}</h1>
+<button (click)="logout()">Logout</button>
+<a [routerLink]="['new_question']">Add a Question</a><br><br>
+
+Search: <input type="text" name="search"><br><br>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Answers</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="questions">
+    <tr *ngFor="let question of questions">
+      <td>{{question.text}}</td>
+      <td>{{question.answers.length}}</td>
+      <td>
+        <a [routerLink]="['question',question._id]">Show</a>
+        <a [routerLink]="['question',question._id,'new_answer']">Answer</a>
+      </td>
+      
+    </tr>
+  </tbody>
+</table>

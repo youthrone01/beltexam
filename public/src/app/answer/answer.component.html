@@ -1,0 +1,17 @@
+
+<a [routerLink]="['']">Home</a>|<a [routerLink]="['/','question', que_id]">Go back to question</a>
+<button (click)="logout()">Logout</button><br>
+
+<h1>{{the_que.text}}</h1>
+<h3>{{the_que.desc}}</h3><br><br>
+
+<form (submit)="onSubmit()" #formData1 = "ngForm">
+  Your Answer:<input type="text" name="text" required minlength="10"
+  [(ngModel)]="answer.text" #text="ngModel" placeholder="Enter your answer"> {{text.errors | json}}<br><br>
+
+  Support Detail (optional):<input type="text" name="desc"
+  [(ngModel)]="answer.support" #desc="ngModel" placeholder="Enter your support"> {{desc.errors | json}}<br><br>
+
+  <input type="submit" [disabled]="!formData1.valid" value="Submit">
+</form><br>
+<button (click)="cancel()">Cancel</button>
